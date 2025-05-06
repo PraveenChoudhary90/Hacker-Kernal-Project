@@ -39,9 +39,15 @@ const DisplayData = async(req,res)=>{
     res.send(data);
 }
 
+const SearchData = async(req,res)=>{
+    const {name} = req.body;
+    const Data = await ProInsertModel.find({name:name});
+    res.send(Data);
+}
 
 module.exports = {
     Login,
     InsertData,
-    DisplayData
+    DisplayData,
+    SearchData
 }
